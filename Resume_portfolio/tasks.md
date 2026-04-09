@@ -1,0 +1,94 @@
+# Tasks
+
+## Task List
+
+- [X] 
+  - [ ] 1.1 Initialize project with Vite, configure TypeScript, Tailwind CSS, Vitest, and fast-check dev dependencies
+  - [ ] 1.2 Define TypeScript interfaces for all data models: `ResumeData`, `PersonalInfo`, `Job`, `SkillGroup`, `Skill`, `Project`, `ContactInfo`, `ContactFormData`, `ValidationResult`, `ThemeMode`
+  - [ ] 1.3 Create `resume-data.json` with placeholder content covering all required fields (personal info, 2+ jobs, skills, 2+ projects, education, contact)
+  - [ ] 1.4 Implement `DataLayer.fetchResumeData()` — loads and parses the JSON file, validates required fields, returns `ResumeData` or `null` on failure
+  - [ ] 1.5 Implement data validation logic: validate `PersonalInfo.name`, `PersonalInfo.title`, `PersonalInfo.resumeUrl`, `Job.startDate`, `Job.endDate`, `Job.bullets` per Requirements 9.1–9.6
+  - [ ] 1.6 Write unit tests for `fetchResumeData()` covering valid data, missing file, malformed JSON, and each validation failure case
+- [ ] 
+  - [ ] 2.1 Implement `AppShell.init()` — bootstraps the app on `DOMContentLoaded`, calls `ThemeEngine.init()`, fetches data, calls `renderAllSections()`, initializes `AnimationEngine`
+  - [ ] 2.2 Implement `AppShell.renderAllSections(data)` — renders all section components into their DOM containers exactly once, sets initial hidden state
+  - [ ] 2.3 Implement error state rendering — displays fallback message and retry button when `fetchResumeData()` returns `null`
+  - [ ] 2.4 Implement `NavigationBar` component — renders sticky nav links for each section, hosts theme toggle button
+  - [ ] 2.5 Implement `onScroll()` handler — uses `getBoundingClientRect()` to determine the active section and calls `NavigationBar.setActiveLink()`
+  - [ ] 2.6 Implement mobile hamburger menu — collapses nav links below mobile breakpoint, toggles visibility on hamburger click, closes on link click
+  - [ ] 2.7 Implement smooth-scroll navigation — clicking a nav link scrolls to the corresponding section
+  - [ ] 2.8 Write property test: for any scroll position, `onScroll()` marks exactly one nav link as active (Property 5, Requirement 3.2)
+  - [ ] 2.9 Write property test: for any valid `ResumeData`, `renderAllSections()` produces exactly one DOM node per section (Property 1, Requirements 2.1, 2.2)
+- [ ] 
+  - [ ] 3.1 Implement `ThemeEngine.init()` — reads `localStorage` for stored preference, falls back to `prefers-color-scheme`, applies resolved theme
+  - [ ] 3.2 Implement `ThemeEngine.toggleTheme()` — switches to opposite `ThemeMode`, persists to `localStorage`, applies CSS class to `<html>`
+  - [ ] 3.3 Implement `ThemeEngine.applyTheme(theme)` — toggles the appropriate CSS class on the root element
+  - [ ] 3.4 Handle `localStorage` unavailability — fall back to system preference silently with no user-visible error
+  - [ ] 3.5 Write property test: `toggleTheme()` applied twice returns to original theme state (Property 4, Requirement 6.5)
+  - [ ] 3.6 Write property test: after `applyTheme(t)`, `localStorage.get("portfolio-theme")` returns `t` (Property 9, Requirement 6.4)
+  - [ ] 3.7 Write unit tests for `ThemeEngine.init()` covering: stored preference exists, no preference + system dark, no preference + system light, localStorage unavailable
+- [ ] 
+  - [ ] 4.1 Implement `AnimationEngine.init(targets)` — registers all section elements with `IntersectionObserver`
+  - [ ] 4.2 Implement `AnimationEngine.observeSection(element, animationClass)` — adds animation CSS class when element enters viewport, then unregisters the observer
+  - [ ] 4.3 Define animation CSS classes using only `transform` and `opacity` properties (no layout-triggering properties)
+  - [ ] 4.4 Write unit tests for `AnimationEngine`: verify all targets are registered on init, verify animation class is added on intersection, verify element is unobserved after first trigger
+- [ ] 
+  - [ ] 5.1 Implement `HeroSection.render(personal)` — renders name, title, tagline, optional avatar, "Download Resume" button, and "Contact Me" button
+  - [ ] 5.2 Implement `HeroSection.animateEntrance()` — plays entrance animation on first load
+  - [ ] 5.3 Handle missing `avatarUrl` — render initials avatar placeholder when `avatarUrl` is null
+  - [ ] 5.4 Implement broken image fallback — replace failed image loads with styled placeholder (Requirement 10.1)
+  - [ ] 5.5 Write property test: for any valid `PersonalInfo`, the rendered HeroSection contains name, title, and tagline (Property 1 partial, Requirement 2.4)
+- [ ] 
+  - [ ] 6.1 Implement `ExperienceSection.render(jobs)` — renders each job as a vertical timeline card with company, role, dates, location, and bullet points
+  - [ ] 6.2 Implement null `endDate` display — render "Present" when `job.endDate` is null (Requirement 2.8)
+  - [ ] 6.3 Implement `expandEntry(jobId)` and `collapseEntry(jobId)` — toggle visibility of bullet point details
+  - [ ] 6.4 Write property test: for any `Job` with `endDate === null`, the rendered card displays "Present" (Property 6, Requirement 2.8)
+- [ ] 
+  - [ ] 7.1 Implement `SkillsSection.render(skills)` — renders all `SkillGroup` entries with category labels and skill items as tag pills or progress bars
+  - [ ] 7.2 Implement `SkillsSection.filterByCategory(category)` — shows only skills in the selected category; shows all when no filter is active
+  - [ ] 7.3 Write property test: for any category filter, only skills belonging to that category are visible after filtering (Requirement 5.2)
+- [ ] 
+  - [ ] 8.1 Implement `ProjectsSection.render(projects)` — renders each project as a card with title, description, tech tags, repo link, and live link
+  - [ ] 8.2 Implement filter bar — renders all unique tags plus "All" option
+  - [ ] 8.3 Implement `ProjectsSection.filterByTag(tag)` — shows matching cards, hides non-matching cards, triggers `AnimationEngine` transitions
+  - [ ] 8.4 Implement `openProjectModal(projectId)` — opens modal with full project details (`longDesc`, all tags, `repoUrl`, `liveUrl`)
+  - [ ] 8.5 Implement `closeProjectModal()` — closes modal and returns focus to the triggering card
+  - [ ] 8.6 Implement broken project image fallback — replace failed image loads with generic project icon placeholder
+  - [ ] 8.7 Write property test: for any tag `t`, after `filterByTag(t)`, every visible card contains `t` in its tags (or `t === "All"`) (Property 2, Requirements 4.3, 4.4)
+- [ ] 
+  - [ ] 9.1 Implement `ContactSection.render(contact)` — renders all non-null contact fields (email, LinkedIn, GitHub, Twitter, website) with appropriate icons and links
+  - [ ] 9.2 Render all external links with `rel="noopener noreferrer"` (Requirement 10.4)
+  - [ ] 9.3 Implement contact form UI — fields for sender name, sender email, subject, and message
+  - [ ] 9.4 Implement `validateForm(formData)` — validates all required fields and email format per Requirements 8.3–8.8
+  - [ ] 9.5 Implement `isValidEmail(email)` — returns true for valid email format, false otherwise
+  - [ ] 9.6 Implement form submission flow — calls `validateForm()`, shows inline errors on failure, submits on success
+  - [ ] 9.7 Implement submission error handling — display inline error banner, preserve form field values on failure (Requirement 8.9)
+  - [ ] 9.8 Implement input sanitization — sanitize all user-supplied input before rendering to DOM (Requirement 10.3)
+  - [ ] 9.9 Write property test: `validateForm(f).isValid === true` iff all required fields are valid and email is well-formed (Property 3, Requirements 8.3–8.8)
+  - [ ] 9.10 Write property test: `isValidEmail(s)` returns true iff `s` matches `[chars]@[chars].[chars]` (Property 7, Requirement 8.5)
+  - [ ] 9.11 Write property test: for any user input containing HTML/script tags, rendered output contains no executable script content (Property 11, Requirement 10.3)
+  - [ ] 9.12 Write property test: for any external link rendered, the anchor element has `rel="noopener noreferrer"` (Property 10, Requirement 10.4)
+  - [ ] 9.13 Write unit tests for `validateForm()` covering all field combinations: empty name, empty email, invalid email, short message, all valid
+- [ ] 
+  - [ ] 10.1 Implement `EducationSection.render(education)` — renders each education entry as a timeline card with institution, degree, field, and dates
+  - [ ] 10.2 Apply the same null `endDate` → "Present" logic as ExperienceSection
+- [ ] 
+  - [ ] 11.1 Implement responsive CSS/Tailwind layout — mobile (< 768px), tablet (768px–1024px), desktop (> 1024px) breakpoints (Requirement 11.1)
+  - [ ] 11.2 Implement responsive project card grid — adjust column count based on viewport width (Requirement 11.2)
+  - [ ] 11.3 Ensure HeroSection is fully readable at 320px minimum viewport width (Requirement 11.4)
+  - [ ] 11.4 Implement dark and light theme CSS variables/classes for all components
+  - [ ] 11.5 Configure `font-display: swap` for all custom fonts (Requirement 12.5)
+- [ ] 
+  - [ ] 12.1 Add `loading="lazy"` attribute to all `<img>` elements (Requirement 12.1)
+  - [ ] 12.2 Ensure resume data is fetched once per session and cached in memory — no repeated fetches (Requirement 12.2)
+  - [ ] 12.3 Add ARIA labels and roles to interactive elements (navigation, buttons, modal, form fields)
+  - [ ] 12.4 Ensure keyboard navigation works for all interactive elements (nav links, filter buttons, project cards, modal, form)
+  - [ ] 12.5 Ensure sufficient color contrast ratios for text in both light and dark themes
+  - [ ] 12.6 Run Lighthouse audit and address issues to reach Performance score ≥ 90 on mobile (Requirement 12.4)
+- [ ] 
+  - [ ] 13.1 Write integration test: full page load with mock `ResumeData` — verify all sections render
+  - [ ] 13.2 Write integration test: scroll behavior — simulate scroll events and assert nav link active states
+  - [ ] 13.3 Write integration test: theme persistence — toggle theme, simulate page reload, assert theme is preserved
+  - [ ] 13.4 Write integration test: mobile menu — resize viewport to mobile width, assert hamburger appears and menu toggles correctly
+  - [ ] 13.5 Write integration test: project filter — select a tag, assert only matching cards are visible
+  - [ ] 13.6 Write integration test: contact form submission failure — mock a failed endpoint, assert error banner appears and form values are preserved

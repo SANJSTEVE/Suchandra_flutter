@@ -1,0 +1,144 @@
+{
+  "personal": {
+    "name": "Sanjaykumar S",
+    "title": "Associate Software Engineer & Generative AI Engineer",
+    "tagline": "Building production-ready AI systems, multi-agent workflows, and scalable GenAI solutions.",
+    "summary": "BCA graduate from SRM Institute of Science and Technology with 1+ year of experience building production-ready AI systems and multi-agent workflows. Specialized in CrewAI, AutoGen, Google ADK, and n8n, with strong proficiency in Python, FastAPI, Next.js, and Node.js. Experienced in LLM integration, prompt engineering, embeddings, and vector databases (ChromaDB). Passionate about developing secure, scalable, and real-time GenAI solutions leveraging cloud and GPU-backed environments.",
+    "email": "senthilsanjay1@gmail.com",
+    "phone": "+91 7358795853",
+    "location": "Chennai, India",
+    "linkedin": "https://linkedin.com/in/sanjaykumar",
+    "resumeUrl": "/resume.pdf"
+  },
+  "experience": [
+    {
+      "id": "exp-1",
+      "company": "Capgemini",
+      "role": "Associate Software Engineer",
+      "startDate": "2026-01",
+      "endDate": null,
+      "location": "Chennai, India",
+      "bullets": [
+        "Built end-to-end multi-agent AI recruitment platform using Google ADK & Gemini",
+        "Designed agent pipeline with semantic matching (ChromaDB) and deterministic scoring engine",
+        "Developed FastAPI backend and Next.js dashboard with role-based access and real-time insights",
+        "Automated workflows using n8n for interview planning and email orchestration",
+        "Engineered QR-based real-time interactive system with WebSockets, 3D mesh generation, and voice control"
+      ],
+      "tags": ["Google ADK", "Gemini", "ChromaDB", "FastAPI", "Next.js", "n8n", "WebSockets"]
+    },
+    {
+      "id": "exp-2",
+      "company": "Capgemini",
+      "role": "Generative AI Engineer Intern",
+      "startDate": "2025-02",
+      "endDate": "2025-12",
+      "location": "Chennai, India",
+      "bullets": [
+        "Built and deployed multi-agent workflows using CrewAI, AutoGen, Google ADK, and n8n",
+        "Designed and optimized autonomous agent systems for task orchestration and workflow automation",
+        "Developed scalable, modular agent-based solutions for enterprise use cases including auto-insurance claims, client insight analytics, and banking contact-center automation",
+        "Integrated no-code platforms with AI frameworks to enhance data-driven decision workflows and client analysis efficiency"
+      ],
+      "tags": ["CrewAI", "AutoGen", "Google ADK", "n8n", "Python", "LangGraph"]
+    },
+    {
+      "id": "exp-3",
+      "company": "nScript Web Studios",
+      "role": "Web Development Intern",
+      "startDate": "2024-06",
+      "endDate": "2024-09",
+      "location": "Chennai, India",
+      "bullets": [
+        "Performed responsive webpage testing across multiple devices to ensure optimal UI performance",
+        "Identified and resolved data integrity issues, ensuring accuracy and consistency in web content",
+        "Built visually appealing, user-friendly interfaces using HTML and CSS",
+        "Gained foundational JavaScript skills to enhance interactivity and dynamic webpage behavior"
+      ],
+      "tags": ["HTML", "CSS", "JavaScript", "Responsive Design"]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "institution": "SRM Institute of Science and Technology, Ramapuram",
+      "degree": "Bachelor of Computer Application (BCA)",
+      "field": "Computer Application",
+      "startDate": "2022-06",
+      "endDate": "2025-05"
+    },
+    {
+      "id": "edu-2",
+      "institution": "Avichi Higher Secondary School",
+      "degree": "Higher Secondary Certificate (Grade 12)",
+      "field": "Science",
+      "startDate": "2020-06",
+      "endDate": "2022-05"
+    },
+    {
+      "id": "edu-3",
+      "institution": "AVM Matriculation Higher Secondary School",
+      "degree": "Secondary School Certificate (Grade 10)",
+      "field": "General",
+      "startDate": "2018-06",
+      "endDate": "2020-05"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Generative AI & Agentic Frameworks",
+      "items": ["CrewAI", "AutoGen", "Google ADK", "n8n", "LangGraph"]
+    },
+    {
+      "category": "AI & ML",
+      "items": ["LLM Integration", "Prompt Engineering", "Embeddings", "Vector Search", "RAG", "ChromaDB"]
+    },
+    {
+      "category": "Languages",
+      "items": ["Python", "JavaScript", "Java", "C", "C++"]
+    },
+    {
+      "category": "Frameworks & Tools",
+      "items": ["FastAPI", "Next.js", "Node.js", "React", "Streamlit", "Jupyter"]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": ["AWS", "GCP", "Git", "WebSockets"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Multi-Agent AI Recruitment Platform",
+      "description": "End-to-end AI recruitment platform with semantic candidate matching and deterministic scoring.",
+      "longDesc": "Built using Google ADK and Gemini, this platform features a semantic matching pipeline powered by ChromaDB, a deterministic scoring engine, a FastAPI backend, and a Next.js dashboard with role-based access control and real-time analytics insights.",
+      "tags": ["Google ADK", "Gemini", "ChromaDB", "FastAPI", "Next.js", "Python"],
+      "repoUrl": null,
+      "liveUrl": null
+    },
+    {
+      "id": "proj-2",
+      "title": "Enterprise Agentic Workflow Automation",
+      "description": "Scalable multi-agent solutions for auto-insurance claims, client analytics, and banking automation.",
+      "longDesc": "Designed and deployed modular agent-based systems using CrewAI, AutoGen, and n8n for enterprise use cases including auto-insurance claims processing, client insight analytics, and banking contact-center automation. Integrated no-code platforms with AI frameworks for enhanced decision workflows.",
+      "tags": ["CrewAI", "AutoGen", "n8n", "Python", "LangGraph"],
+      "repoUrl": null,
+      "liveUrl": null
+    },
+    {
+      "id": "proj-3",
+      "title": "QR-Based Real-Time Interactive System",
+      "description": "Real-time interactive system with WebSockets, 3D mesh generation, and voice control.",
+      "longDesc": "Engineered a QR-code triggered real-time interactive experience leveraging WebSockets for live communication, 3D mesh generation for visual rendering, and voice control integration for hands-free interaction.",
+      "tags": ["WebSockets", "3D Mesh", "Voice Control", "Node.js", "Real-time"],
+      "repoUrl": null,
+      "liveUrl": null
+    }
+  ],
+  "certifications": [
+    "Certified Python Beginner and Programmer",
+    "Programming in C",
+    "Programming in C++"
+  ],
+  "languages": ["English", "Tamil"]
+}
