@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import resumeData from '../data/resume.json';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import Bento from '../components/Bento';
