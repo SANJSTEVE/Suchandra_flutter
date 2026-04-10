@@ -1,0 +1,169 @@
+{
+  "personal": {
+    "name": "Suchandra Mondal",
+    "title": "Flutter Developer | Mobile App Developer (iOS & Android)",
+    "summary": "Mobile application developer with 6+ years of experience and 5+ years in Flutter, specializing in building enterprise-grade, scalable cross-platform applications. Experienced in innovation-driven POCs, reusable accelerators, and internal component libraries to speed up project delivery. Strong background in Firebase, Azure integration, Clean Architecture, CI/CD, and Agile consulting environments. Proven ability to collaborate with stakeholders, translate business requirements into technical solutions, and deliver high-quality apps across domains including FinTech, Automotive, and Digital Transformation.",
+    "email": "msuchandra27@gmail.com",
+    "phone": "9830253747",
+    "location": "Hyderabad, India",
+    "linkedin": "https://www.linkedin.com/in/suchandra-mondal-3a4652196",
+    "availability": "Open to roles"
+  },
+  "skills": [
+    {
+      "category": "Core",
+      "items": ["Flutter", "Dart"]
+    },
+    {
+      "category": "State Management",
+      "items": ["GetX", "Provider", "Bloc", "Riverpod"]
+    },
+    {
+      "category": "Architecture",
+      "items": ["MVVM", "MVC", "Clean Architecture"]
+    },
+    {
+      "category": "Backend / Cloud",
+      "items": ["Firebase (Auth, Firestore, Realtime DB, Cloud Functions)", "REST APIs", "GraphQL", "WebSockets", "Azure"]
+    },
+    {
+      "category": "Storage",
+      "items": ["Hive", "SQFLite"]
+    },
+    {
+      "category": "DevOps & Tools",
+      "items": ["Git", "CI/CD Basics", "App Store & Play Store Deployment", "Agile / Scrum", "Performance Optimization & Debugging"]
+    }
+  ],
+  "experience": [
+    {
+      "id": "capgemini",
+      "company": "Capgemini Technology Services India Limited",
+      "role": "Sr. Consultant",
+      "startDate": "06/2022",
+      "endDate": null,
+      "location": "Hyderabad, India",
+      "bullets": [
+        "Delivered 3+ enterprise Flutter apps, improving maintainability by 35% using Clean Architecture.",
+        "Enabled 20–30% faster delivery by translating business requirements into scalable mobile solutions.",
+        "Led 10+ innovation POCs, including a flagship project showcased at Google Cloud Next 2025 and VivaTech.",
+        "Built reusable accelerators and UI libraries, reducing development effort by 30–40%.",
+        "Integrated Firebase and Azure APIs for secure, cloud-ready mobile solutions.",
+        "Improved performance by 25% via WebSockets, offline-first design, and CI/CD, ensuring on-time releases."
+      ],
+      "tags": ["Flutter", "Dart", "Clean Architecture", "Firebase", "Azure", "CI/CD"]
+    },
+    {
+      "id": "ivan-infotech",
+      "company": "Ivan Infotech Pvt. Ltd",
+      "role": "Flutter Developer",
+      "startDate": "04/2020",
+      "endDate": "06/2022",
+      "location": "Kolkata, India",
+      "bullets": [
+        "Developed and maintained Flutter applications across domains including fitness, e-commerce, dating, and food delivery.",
+        "Integrated third-party SDKs for analytics, payments, and real-time communication.",
+        "Improved application performance, reduced crashes, and enhanced UI/UX consistency.",
+        "Collaborated with designers, backend teams, and clients to deliver business-aligned solutions."
+      ],
+      "tags": ["Flutter", "Dart", "Provider", "GetX", "REST APIs"]
+    },
+    {
+      "id": "pitangent",
+      "company": "Pitangent Analytics and Technology Solutions Pvt. Ltd",
+      "role": "Android Developer",
+      "startDate": "04/2019",
+      "endDate": "01/2020",
+      "location": "Kolkata, India",
+      "bullets": [
+        "Contributed to the design and development of new feature specifications for Android applications.",
+        "Ensured seamless integration of applications with Android APIs to enhance performance and functionality.",
+        "Delivered high-quality content that consistently met or exceeded business and client requirements."
+      ],
+      "tags": ["Android", "Java", "Kotlin", "REST APIs"]
+    },
+    {
+      "id": "openweb",
+      "company": "Openweb Solutions",
+      "role": "Junior Android Developer",
+      "startDate": "11/2018",
+      "endDate": "03/2019",
+      "location": "Kolkata, India",
+      "bullets": [
+        "Developed clean, efficient, and maintainable code, ensuring high-quality software delivery.",
+        "Collaborated on project concepts and maintained optimal workflows for seamless development.",
+        "Assisted senior developers in managing and executing large-scale, complex design projects for corporate clients.",
+        "Conducted thorough quality assurance tests to identify and resolve errors, enhancing overall usability."
+      ],
+      "tags": ["Android", "Java", "Agile"]
+    }
+  ],
+  "education": [
+    {
+      "id": "mca",
+      "institution": "JIS College of Engineering",
+      "degree": "Masters of Computer Applications (MCA)",
+      "field": "Computer Applications",
+      "startDate": "2017",
+      "endDate": "2019",
+      "location": "West Bengal"
+    },
+    {
+      "id": "bca",
+      "institution": "JIS College of Engineering",
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "field": "Computer Applications",
+      "startDate": "2013",
+      "endDate": "2016",
+      "location": "West Bengal"
+    }
+  ],
+  "projects": [
+    {
+      "id": "enterprise-fleet",
+      "title": "Enterprise Fleet Management App",
+      "description": "A cross-platform Flutter application for real-time fleet tracking and management, supporting iOS, Android, and Web. Features live GPS tracking, driver management, route optimization, and analytics dashboards.",
+      "tags": ["Flutter", "Dart", "Firebase", "Google Maps", "BLoC", "Clean Architecture"],
+      "storeUrl": null,
+      "liveUrl": null,
+      "repoUrl": null
+    },
+    {
+      "id": "ecommerce-platform",
+      "title": "Multi-Vendor E-Commerce Platform",
+      "description": "A full-featured Flutter e-commerce app with multi-vendor support, real-time inventory management, Razorpay payment integration, and push notifications via Firebase Cloud Messaging.",
+      "tags": ["Flutter", "Dart", "Firebase", "Razorpay", "Riverpod", "REST APIs"],
+      "storeUrl": null,
+      "liveUrl": null,
+      "repoUrl": null
+    },
+    {
+      "id": "health-tracker",
+      "title": "Personal Health & Fitness Tracker",
+      "description": "A Flutter wellness app integrating with device health APIs (HealthKit on iOS, Google Fit on Android) to track workouts, nutrition, sleep, and vitals. Features custom chart visualizations and daily goal tracking.",
+      "tags": ["Flutter", "Dart", "HealthKit", "Google Fit", "Provider", "SQLite"],
+      "storeUrl": null,
+      "liveUrl": null,
+      "repoUrl": null
+    },
+    {
+      "id": "banking-app",
+      "title": "Digital Banking Mobile App",
+      "description": "A secure digital banking application built with Flutter, featuring biometric authentication, real-time transaction history, fund transfers, and bill payments. Implemented with Clean Architecture and BLoC for maintainability.",
+      "tags": ["Flutter", "Dart", "BLoC", "Clean Architecture", "Biometrics", "REST APIs"],
+      "storeUrl": null,
+      "liveUrl": null,
+      "repoUrl": null
+    }
+  ],
+  "stats": {
+    "yearsExperience": "6+",
+    "yearsFlutter": "5+",
+    "enterpriseApps": "3+",
+    "platforms": "4"
+  },
+  "certifications": [
+    "Flutter Development – Udemy",
+    "Android Development – Ejob India"
+  ]
+}

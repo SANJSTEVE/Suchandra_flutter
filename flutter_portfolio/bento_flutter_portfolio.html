@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flutter Developer Portfolio — Bento Glass</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #050505; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 32px 16px; font-family: system-ui, -apple-system, sans-serif; }
+
+    .scene {
+      width: 100%; max-width: 900px;
+      background: #080808;
+      padding: 28px 20px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .orb { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.35; pointer-events: none; }
+    .orb1 { width: 280px; height: 280px; background: #027DFD; top: -80px; right: -60px; }
+    .orb2 { width: 180px; height: 180px; background: #54C5F8; bottom: 40px; left: -30px; }
+    .orb3 { width: 130px; height: 130px; background: #01579B; bottom: 160px; right: 25%; }
+
+    .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; position: relative; z-index: 2; }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+      padding: 18px;
+      color: #fff;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .glass:hover { border-color: rgba(2,125,253,0.4); background: rgba(255,255,255,0.06); }
+
+    .card-bio     { grid-column: span 2; }
+    .card-status  { grid-column: span 1; }
+    .card-project { grid-column: span 1; }
+    .card-skills  { grid-column: span 2; }
+    .card-exp     { grid-column: span 3; }
+    .card-stats   { grid-column: span 2; }
+    .card-contact { grid-column: span 1; }
+
+    .avatar { width: 46px; height: 46px; border-radius: 50%; background: rgba(2,125,253,0.2); border: 1.5px solid rgba(2,125,253,0.6); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; color: #54C5F8; margin-bottom: 12px; }
+    .name  { font-size: 21px; font-weight: 500; color: #fff; line-height: 1.2; }
+    .role  { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+    .bio-line { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 10px; line-height: 1.65; }
+
+    .slabel { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; color: rgba(255,255,255,0.28); text-transform: uppercase; margin-bottom: 10px; }
+
+    .status-dot  { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; display: inline-block; margin-right: 6px; }
+    .status-text { font-size: 13px; font-weight: 500; color: #86efac; margin-top: 8px; }
+    .loc         { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 6px; }
+    .divider     { height: 1px; background: rgba(255,255,255,0.07); margin: 10px 0; }
+
+    .platform-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .platform-chip { display: flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+    .platform-chip span { font-size: 11px; color: rgba(255,255,255,0.55); }
+    .pdot { width: 6px; height: 6px; border-radius: 50%; }
+
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+    .pill { font-size: 11px; padding: 3px 10px; border-radius: 99px; font-weight: 500; }
+    .pill-fl  { background: rgba(2,125,253,0.2);   border: 1px solid rgba(2,125,253,0.4);   color: #54C5F8; }
+    .pill-sky { background: rgba(84,197,248,0.15);  border: 1px solid rgba(84,197,248,0.3);  color: #7dd3fc; }
+    .pill-wht { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); color: rgba(255,255,255,0.65); }
+    .pill-grn { background: rgba(34,197,94,0.15);   border: 1px solid rgba(34,197,94,0.3);   color: #86efac; }
+
+    .proj-title { font-size: 13px; font-weight: 500; color: #fff; margin-bottom: 3px; }
+    .proj-desc  { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 10px; }
+    .live-badge  { font-size: 10px; padding: 2px 8px; border-radius: 99px; background: rgba(34,197,94,0.18);  border: 1px solid rgba(34,197,94,0.35);  color: #86efac; }
+    .store-badge { font-size: 10px; padding: 2px 8px; border-radius: 99px; background: rgba(2,125,253,0.2);   border: 1px solid rgba(2,125,253,0.4);   color: #54C5F8; }
+
+    .exp-row  { display: flex; flex-direction: column; gap: 9px; }
+    .exp-item { display: flex; align-items: center; gap: 10px; }
+    .exp-dot  { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .exp-name { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.82); }
+    .exp-sub  { font-size: 10px; color: rgba(255,255,255,0.35); }
+    .exp-bar-wrap { flex: 1; height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; }
+    .exp-bar  { height: 100%; border-radius: 2px; }
+
+    .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 4px; }
+    .stat-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 8px; text-align: center; }
+    .stat-num { font-size: 20px; font-weight: 500; }
+    .stat-lbl { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+    .contact-big { font-size: 19px; font-weight: 500; color: #fff; line-height: 1.3; }
+    .contact-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 6px; margin-bottom: 14px; }
+    .cta-btn { display: inline-block; padding: 8px 18px; border-radius: 99px; background: rgba(2,125,253,0.3); border: 1px solid rgba(2,125,253,0.55); color: #54C5F8; font-size: 12px; font-weight: 500; cursor: pointer; text-decoration: none; }
+    .cta-btn:hover { background: rgba(2,125,253,0.45); }
+
+    @media (max-width: 640px) {
+      .bento { grid-template-columns: 1fr 1fr; }
+      .card-bio, .card-skills, .card-exp, .card-stats { grid-column: span 2; }
+      .card-status, .card-project, .card-contact { grid-column: span 1; }
+    }
+    @media (max-width: 420px) {
+      .bento { grid-template-columns: 1fr; }
+      .glass { grid-column: span 1 !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="scene">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <div class="bento">
+
+    <div class="glass card-bio">
+      <div class="avatar">RK</div>
+      <div class="name">Your Colleague</div>
+      <div class="role">Flutter Developer · Cross-Platform Engineer</div>
+      <div class="bio-line">Crafting pixel-perfect mobile & web experiences with Flutter — from smooth animations to production-ready apps on iOS, Android & Web.</div>
+      <div class="platform-row">
+        <div class="platform-chip"><div class="pdot" style="background:#54C5F8;"></div><span>iOS</span></div>
+        <div class="platform-chip"><div class="pdot" style="background:#86efac;"></div><span>Android</span></div>
+        <div class="platform-chip"><div class="pdot" style="background:#c4b5fd;"></div><span>Web</span></div>
+        <div class="platform-chip"><div class="pdot" style="background:#fbbf24;"></div><span>Desktop</span></div>
+      </div>
+    </div>
+
+    <div class="glass card-status">
+      <div class="slabel">Status</div>
+      <div><span class="status-dot"></span><span style="font-size:12px;color:rgba(255,255,255,0.65);">Available</span></div>
+      <div class="status-text">Open to roles</div>
+      <div class="loc">Mumbai, IN</div>
+      <div class="divider"></div>
+      <div class="slabel" style="margin-bottom:6px;">Dart / Flutter</div>
+      <div style="height:4px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;">
+        <div style="width:92%;height:100%;background:rgba(2,125,253,0.7);border-radius:2px;"></div>
+      </div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px;">92% proficiency</div>
+    </div>
+
+    <div class="glass card-project">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div class="slabel" style="margin-bottom:0;">Project</div>
+        <span class="live-badge">live</span>
+      </div>
+      <div class="proj-title">FinTrack App</div>
+      <div class="proj-desc">Personal finance tracker with custom charts, offline sync & local notifications.</div>
+      <div class="pill-wrap">
+        <span class="pill pill-fl">Riverpod</span>
+        <span class="pill pill-sky">Hive</span>
+        <span class="pill pill-wht">fl_chart</span>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:6px;">
+        <span class="store-badge">App Store</span>
+        <span class="store-badge">Play Store</span>
+      </div>
+    </div>
+
+    <div class="glass card-skills">
+      <div class="slabel">Skills & tools</div>
+      <div class="pill-wrap">
+        <span class="pill pill-fl">Flutter</span>
+        <span class="pill pill-fl">Dart</span>
+        <span class="pill pill-sky">Riverpod</span>
+        <span class="pill pill-sky">BLoC</span>
+        <span class="pill pill-sky">Provider</span>
+        <span class="pill pill-grn">Firebase</span>
+        <span class="pill pill-grn">Supabase</span>
+        <span class="pill pill-wht">REST APIs</span>
+        <span class="pill pill-wht">GraphQL</span>
+        <span class="pill pill-wht">Figma</span>
+        <span class="pill pill-wht">Git</span>
+        <span class="pill pill-wht">CI/CD</span>
+      </div>
+    </div>
+
+    <div class="glass card-exp">
+      <div class="slabel">Experience</div>
+      <div class="exp-row">
+        <div class="exp-item">
+          <div class="exp-dot" style="background:#027DFD;"></div>
+          <div style="min-width:150px;">
+            <div class="exp-name">Senior Flutter Developer</div>
+            <div class="exp-sub">2023–present · TechCorp</div>
+          </div>
+          <div class="exp-bar-wrap"><div class="exp-bar" style="width:88%;background:rgba(2,125,253,0.65);"></div></div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot" style="background:#54C5F8;"></div>
+          <div style="min-width:150px;">
+            <div class="exp-name">Flutter Developer</div>
+            <div class="exp-sub">2021–2023 · MobileFirst</div>
+          </div>
+          <div class="exp-bar-wrap"><div class="exp-bar" style="width:65%;background:rgba(84,197,248,0.6);"></div></div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot" style="background:#22c55e;"></div>
+          <div style="min-width:150px;">
+            <div class="exp-name">Junior App Developer</div>
+            <div class="exp-sub">2020–2021 · StartupY</div>
+          </div>
+          <div class="exp-bar-wrap"><div class="exp-bar" style="width:38%;background:rgba(34,197,94,0.5);"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass card-stats">
+      <div class="slabel" style="margin-bottom:12px;">Numbers</div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num" style="color:#54C5F8;">5+</div><div class="stat-lbl">years Flutter</div></div>
+        <div class="stat-box"><div class="stat-num" style="color:#86efac;">20+</div><div class="stat-lbl">apps shipped</div></div>
+        <div class="stat-box"><div class="stat-num" style="color:#c4b5fd;">4</div><div class="stat-lbl">platforms</div></div>
+      </div>
+    </div>
+
+    <div class="glass card-contact">
+      <div class="slabel">Hire me</div>
+      <div class="contact-big">Let's build<br>something.</div>
+      <div class="contact-sub">Flutter · Mobile · Web</div>
+      <a class="cta-btn" href="mailto:colleague@email.com">say hello</a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
