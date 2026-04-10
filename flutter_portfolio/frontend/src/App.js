@@ -376,13 +376,11 @@ export default function App() {
   });
 
   useEffect(() => {
+    // Try API first, fall back to static resume.json in public/
     fetch('/api/resume')
-      .then(r => r.json())
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
       .then(setData)
-      .catch(() => {
-        // fallback: load from public folder
-        fetch('/resume.json').then(r => r.json()).then(setData).catch(console.error);
-      });
+      .catch(() => fetch('/resume.json').then(r => r.json()).then(setData).catch(console.error));
   }, []);
 
   useEffect(() => {
